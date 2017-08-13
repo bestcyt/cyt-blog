@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-2 text-left">
-                    <div id="gtco-logo"><a href="index.html">Verb<span>.</span></a></div>
+                    <div id="gtco-logo"><a href="index.html">blog<span>.</span></a></div>
                 </div>
                 <div class="col-xs-10 text-right menu-1">
                     <ul>
@@ -19,10 +19,10 @@
                             </ul>
                         </li>
 
-                        <li><a href="category.html">Business</a></li>
-                        <li><a href="category.html">Travel</a></li>
-                        <li><a href="category.html">Design</a></li>
-                        <li><a href="category.html">Culture</a></li>
+                        <li><a href="category.html">js</a></li>
+                        <li><a href="category.html">php</a></li>
+                        <li><a href="category.html">java</a></li>
+                        <li><a href="category.html">say something</a></li>
                     </ul>
                 </div>
             </div>
