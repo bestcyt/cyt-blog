@@ -18,21 +18,24 @@
                                 <li><a href="#">Django</a></li>
                             </ul>
                         </li>
-
                         <li><a href="category.html">js</a></li>
                         <li><a href="category.html">php</a></li>
                         <li><a href="category.html">java</a></li>
-                        <li><a href="category.html">say something</a></li>
+                        <li><a href="category.html">saysomething</a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-2 text-left">
-                    <div id="gtco-logo"><a href="index.html">search<span>.</span></a></div>
-                </div>
+                {{--<div class="col-xs-2 text-left">--}}
+                    {{--<div id="gtco-logo"><a href="index.html">search<span>.</span></a></div>--}}
+                {{--</div>--}}
                 <div class="col-xs-10 text-right menu-1">
                     <input type="text" placeholder="search" />
                 </div>
+                <div class="col-xs-2 ">
+                    <button class="btn btn-success btn-xs">go</button>
+                </div>
+
             </div>
         </div>
     </nav>
@@ -44,8 +47,8 @@
                 <div class="col-md-7 text-left">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <span class="date-post">4 days ago</span>
-                            <h1 class="mb30"><a href="#">嫦娥</a></h1>
+                            <span class="date-post">愿你历经千帆</span>
+                            <h1 class="mb30"><a href="#">归来时仍是少年~</a></h1>
                             <p><a href="#" class="text-link">Read More</a></p>
                         </div>
                     </div>
@@ -53,4 +56,4 @@
             </div>
         </div>
     </header>
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+</div>

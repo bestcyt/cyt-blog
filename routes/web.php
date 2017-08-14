@@ -16,3 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('home','Home\HomeController@index');
+Route::get('w',function (){
+    return 'asdf';
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
