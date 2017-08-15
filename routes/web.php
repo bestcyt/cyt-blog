@@ -22,4 +22,16 @@ Route::get('w',function (){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'HomeController@index')->name('home');
+
+/*
+ * 后台管理员登录路由组
+ */
+Route::group(['middleware'=>'adminlogin','namespace'=>'Admin','prefix'=>'admin'],function (){
+
+    Route::match(['get','post'],'/login','LoginController@login');
+//    Route::get('login','LoginController@login');
+
+});
+
+

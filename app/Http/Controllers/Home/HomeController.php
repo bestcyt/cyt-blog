@@ -16,7 +16,7 @@ class HomeController extends Controller
         //列出全部文章，分页
         $ar = BlogArticle::getAll();
 
-//        dd($ar);
+        dd($ar);
         return view('home.index');
     }
 
