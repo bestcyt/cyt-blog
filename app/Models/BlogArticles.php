@@ -13,4 +13,15 @@ class BlogArticles extends Model
 
         return 111;
     }
+
+    /**
+     * auth:cyt
+     * @param  id[int]
+     * @param  id[int]
+     * @return id[int]
+     */
+    public function getUserInfoById($id,$iddd)
+    {
+    	return static::find($id);
+    }
 }

@@ -9,18 +9,23 @@ use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-    //
+    
+    /**
+     * @param  Request
+     * @return [type]
+     */
     public function login(Request $request){
 //        dd($request);
+
         if ($request->method() == 'POST'){
 //            dd($request,Session::all());
             $this->validate($request,[
                 'username'=> 'required|min:1',
                 'password'=> 'required|min:1',
-                'captcha'=> 'required|captcha',
+                // 'captcha'=> 'required|captcha',
             ],[
                 'required' => ' :attribute 不能为空.',
-                'captcha' => ' :attribute 错误.',
+                // 'captcha' => ' :attribute 错误.',
                 'min' => ' :attribute 长度不足.',
             ],[
                 'username'=>'用户名',
@@ -30,10 +35,20 @@ class LoginController extends Controller
 
             //验证用户名密码是否符合->数据库
 
+            // $pass = password_hash()
             //记录session
-
-            return view('admin.index');
+            return redirect('admin/index');
         }
         return view('admin.login');
+    }
+
+    /**
+     * @param string
+     */
+    public function loginout()
+    {
+        // 清空session
+
+        // 重定向到login
     }
 }
