@@ -21,7 +21,6 @@ Route::get('w',function (){
 });
 
 Auth::routes();
-
 Route::get('/login', 'HomeController@index')->name('home');
 
 /*
@@ -41,6 +40,7 @@ Route::group(['middleware'=>'adminlogin','namespace'=>'Admin','prefix'=>'admin']
     Route::get('/articles/add',function(){
     	return view('admin.add');
     });
+    Route::post('articles/add','ArticlesController@postModify');
 
     // 文章列表
     Route::get('/articles/list',function(){
