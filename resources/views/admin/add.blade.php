@@ -33,10 +33,13 @@
                         <td>
                             <select name="article_cate">
                                 <option value="">==请选择==</option>
-                                <option value="7">laravel</option>
-                                <option value="8">PHP</option>
-                                <option value="9">java</option>
-                                <option value="10">随想</option>
+                                <option value="1">php</option>
+                                <option value="11">thinkCMF</option>
+                                <option value="13">laravel</option>
+                                <option value="2">mysql</option>
+                                <option value="3">linux</option>
+                                <option value="4">杂记</option>
+                                <option value="5">other</option>
                             </select>
                         </td>
                     </tr>

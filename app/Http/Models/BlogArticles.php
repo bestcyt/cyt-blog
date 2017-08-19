@@ -9,9 +9,10 @@ class BlogArticles extends Model
     protected $table = "blog_articles";
     public $timestamps = false;
 
-    public function getAll(){
+    public static function getAllArticles(){
 
-        return 111;
+        $article_list = static::paginate(1);
+        return $article_list;
     }
 
     /**
@@ -36,6 +37,22 @@ class BlogArticles extends Model
         $article_data['create_time'] = time();
         $re = static::insert($article_data);
         
+
+
         return $re ;
+    }
+
+    public static function getArticleInfo($article_id)
+    {
+       return static::find($article_id);
+    }
+
+
+    /**
+     * @todo  根据类别获取文章
+     */
+    public static function getArticlesListByCate($cate_id)
+    {
+        return static::where('cate','=',$cate_id)->paginate(1);
     }
 }

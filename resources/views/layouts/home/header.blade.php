@@ -10,22 +10,22 @@
                 <div class="col-xs-10 text-right menu-1">
                     <ul>
                         <li class="has-dropdown">
-                            <a href="category.html">Development</a>
+                            <a href="#">PHP</a>
                             <ul class="dropdown">
-                                <li><a href="#">Python</a></li>
-                                <li><a href="#">Javascript</a></li>
-                                <li><a href="#">HTML5/CSS3</a></li>
-                                <li><a href="#">Django</a></li>
+                                <li><a href=" {{ url('cate') }}/1">php</a></li>
+                                <li><a href="{{ url('cate') }}/11">Thinkphp</a></li>
+                                <li><a href="{{ url('cate') }}/12">laravel</a></li>
+                                <!-- <li><a href="#">Django</a>s</li> -->
                             </ul>
                         </li>
-                        <li><a href="category.html">js</a></li>
-                        <li><a href="category.html">php</a></li>
-                        <li><a href="category.html">java</a></li>
-                        <li><a href="category.html">saysomething</a></li>
+                        <li><a href="{{ url('cate')}}/2">Mysql</a></li>
+                        <li><a href="{{ url('cate') }}/3">Linux</a></li>
+                        <li><a href="{{ url('cate') }}/4">other</a></li>
+                        <li><a href="{{ url('cate') }}/5">杂记</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+           <!--  <div class="row">
                 {{--<div class="col-xs-2 text-left">--}}
                     {{--<div id="gtco-logo"><a href="index.html">search<span>.</span></a></div>--}}
                 {{--</div>--}}
@@ -36,7 +36,7 @@
                     <button class="btn btn-success btn-xs">go</button>
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </nav>
 

@@ -11,14 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Home\HomeController@view');
 
-Route::get('home','Home\HomeController@index');
-Route::get('w',function (){
-    return 'asdf';
-});
+//前台文章资源路由，
+Route::resource('article','Home\ArticlesController');
+// Route::get('article/{id}','Home\HomeController@getModify');
+
+Route::get('cate/{id}','Home\HomeController@view');
+
+
+// Route::get('home','Home\HomeController@index');
+// Route::get('w',function (){
+//     return 'asdf';
+// });
 
 Auth::routes();
 Route::get('/login', 'HomeController@index')->name('home');
