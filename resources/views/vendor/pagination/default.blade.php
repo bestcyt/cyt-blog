@@ -10,9 +10,9 @@
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
-            @if (is_string($element))
-                <li class="disabled"><span>{{ $element }}</span></li>
-            @endif
+            {{--@if (is_string($element))--}}
+                {{--<li class="disabled"><span>{{ $element }}</span></li>--}}
+            {{--@endif--}}
 
             {{-- Array Of Links --}}
             @if (is_array($element))

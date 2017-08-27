@@ -1,8 +1,6 @@
-@extends('layouts/home/home_layout')
+@extends('home.home')
 		
-		@section('content')
-
-	
+@section('content')
 	<div id="gtco-maine">
 		<div class="container">
 			<div class="row row-pb-md">
@@ -146,7 +144,4 @@
 	</div>
 
 
-
-
-	
 	@endsection

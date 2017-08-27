@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-2 text-left">
-                    <div id="gtco-logo"><a href="index.html">blog<span>.</span></a></div>
+                    <div id="gtco-logo"><a href="{{ env('APP_ONLINE') == 'true' ? 'http://bestcyt.cn':'http://cyt-blog.cn/' }}">blog<span>.</span></a></div>
                 </div>
                 <div class="col-xs-10 text-right menu-1">
                     <ul>

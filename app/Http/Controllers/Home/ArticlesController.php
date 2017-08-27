@@ -13,8 +13,9 @@ class ArticlesController extends Controller
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-    public function show($id)
+    public function index($id)
     {
+    	
     	$article_id = $id;
     	$article_detail = BlogArticles::getArticleInfo($article_id);
 

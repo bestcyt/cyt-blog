@@ -50,9 +50,9 @@
 
 </head>
 <body>
-@include('layouts/home/header')
+@include('layouts.home.header')
 @yield('content')
-@include('layouts/home/footer')
+@include('layouts.home.footer')
 </body>
 @yield('script'))
 <!-- jQuery -->
