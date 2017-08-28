@@ -37,6 +37,7 @@ class LoginController extends Controller
 
             // $pass = password_hash()
             //记录session
+            Session::put('admin');
             return redirect('admin/index');
         }
         return view('admin.login');
