@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="post-entry">
                     <div class="post-img">
-                        <a href="#"><img src="{{ url('images/img_1.jpg') }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                        <a href="#"><img src="{{ asset('images/img_1.jpg') }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
                     </div>
                     <div class="post-copy">
                         <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -18,7 +18,7 @@
             <div class="col-md-4">
                 <div class="post-entry">
                     <div class="post-img">
-                        <a href="#"><img src="images/img_2.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                        <a href="#"><img src="{{ asset('images/img_2.jpg') }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
                     </div>
                     <div class="post-copy">
                         <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -29,7 +29,7 @@
             <div class="col-md-4">
                 <div class="post-entry">
                     <div class="post-img">
-                        <a href="#"><img src="images/img_3.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
+                        <a href="#"><img src="{{ asset('images/img_3.jpg') }}" class="img-responsive" alt="Free HTML5 Bootstrap Template by GetTemplates.co"></a>
                     </div>
                     <div class="post-copy">
                         <h4><a href="#">How Web Hosting Can Impact Page Load Speed</a></h4>
@@ -42,8 +42,9 @@
         <div class="row copyright">
             <div class="col-md-12 text-center">
                 <p>
-                    <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
+                    <small class="block"><a href="https://github.com/bestcyt/cyt-blog">GitHub(欢迎star)</a>     -    <a href="http://www.bestcyt.cn/" target="_blank" title="模板之家">陈一锑的个人博客</a> </small>
                 </p>
+
                 <p>
                 <ul class="gtco-social-icons">
                     <li><a href="#"><i class="icon-twitter"></i></a></li>

@@ -3,22 +3,24 @@
         <div class="row row-pb-md">
             <div class="col-md-12">
                 <ul id="gtco-post-list">
-                    @if( count($users) ==0 )
+                    @if( count($articles) ==0 )
                         <h3>该分类暂无文章</h3>
-                    @endif
-                    @foreach($users as $item)
-                        <li class="full entry animate-box" data-animate-effect="fadeIn">
-                            <a href="{{ url('article') }}/{{ $item->id }}" target="_blank">
-                                <input type="hidden" name="article_detail">
-                                <div class="entry-img col-md-6" style="background-image: {{ asset('images/img_1.jpg')  }}"></div>
-                                <div class="entry-desc col-md-6" >
-                                    <h3>{{ $item->id }}</h3>
-                                    <p>{{ $item->desc }}</p>
-                                </div>
-                            </a>
-                            <a href="#" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
-                        </li>
+                        @else
+                        @foreach($articles as $item)
+                            <li class="full entry animate-box" data-animate-effect="fadeIn">
+                                <a href="{{ url('article') }}/{{ $item->id }}" target="_blank">
+                                    <input type="hidden" name="article_detail">
+                                    <div class="entry-img col-md-6" style="background-image:url({{ asset('images/img_1.jpg')  }})"></div>
+                                    <div class="entry-desc col-md-6" >
+                                        <h3>{{ $item->id }}</h3>
+                                        <p>{{ $item->desc }}</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="post-meta">Business  <span class="date-posted">4 days ago</span></a>
+                            </li>
                     @endforeach
+                    @endif
+
 
                 <!-- <li class="two-third entry animate-box" data-animate-effect="fadeIn">
                             <a href="single.html">
@@ -50,12 +52,12 @@
             <div class="col-md-12 text-center">
                 <nav aria-label="Page navigation">
                     <div class="container">
-                        @foreach ($users as $user)
-                            {{ $user->name }}
+                        @foreach ($articles as $article)
+                            {{ $article->name }}
                         @endforeach
                     </div>
 
-                    {{ $users->links() }}
+                    {{ $articles->links() }}
                 </nav>
 
             </div>

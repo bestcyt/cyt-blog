@@ -15,7 +15,7 @@ class HomeController extends Controller
 
         $ar = BlogArticles::getAllArticles();
 
-        return view('home.home')->with(['users'=>$ar]);
+        return view('home.home')->with(['articles'=>$ar]);
     }
 
     /**

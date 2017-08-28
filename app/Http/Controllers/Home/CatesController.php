@@ -19,6 +19,6 @@ class CatesController extends Controller
 
     	$ar = BlogArticles::getArticlesListByCate($cate_id);
 
-    	return view('home.home')->with(['users'=>$ar]);
+    	return view('home.home')->with(['articles'=>$ar]);
     }
 }

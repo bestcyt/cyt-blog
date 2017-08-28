@@ -1,4 +1,4 @@
-@extends('home.home')
+@extends('layouts/home/app')
 		
 @section('content')
 	<div id="gtco-maine">
