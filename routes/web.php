@@ -13,18 +13,16 @@
 
 //前台首页
 Route::get('/', 'Home\HomeController@view');
+
+//前台分类文章路由
 Route::get('cate/{id}','Home\CatesController@index');
+
 //前台文章资源路由，
 Route::get('article/{id}','Home\ArticlesController@index');
-// Route::get('article/{id}','Home\HomeController@getModify');
-
-// Route::get('cate/{id}','Home\HomeController@view');
 
 
-
-
-Auth::routes();
-Route::get('/login', 'HomeController@index')->name('home');
+//Auth::routes();
+//Route::get('/login', 'HomeController@index')->name('home');
 
 /*
  * 后台管理员登录路由组

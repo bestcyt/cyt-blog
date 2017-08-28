@@ -44,7 +44,9 @@
                 <p>
                     <small class="block"><a href="https://github.com/bestcyt/cyt-blog">GitHub(欢迎star)</a>     -    <a href="http://www.bestcyt.cn/" target="_blank" title="模板之家">陈一锑的个人博客</a> </small>
                 </p>
-
+                <p>
+                    <small class="block">All rights reserved. <a href="http://www.miibeian.gov.cn">闽ICP备17014645号</a> </small>
+                </p>
                 <p>
                 <ul class="gtco-social-icons">
                     <li><a href="#"><i class="icon-twitter"></i></a></li>
