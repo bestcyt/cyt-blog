@@ -1,10 +1,11 @@
 @extends('layouts.admin.app')
 
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">商品管理</a> &raquo; 添加商品
+        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">文章管理</a> &raquo; 添加文章
     </div>
     <!--面包屑导航 结束-->
 
@@ -106,6 +107,15 @@
 <script>
 layui.use('layedit', function(){
   var layedit = layui.layedit;
+    layedit.set({
+        uploadImage: {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '{{ url('admin/articles') }}' //接口url
+            ,type: 'post' //默认post
+        }
+    });
   layedit.build('demo'); //建立编辑器
 });
 </script>

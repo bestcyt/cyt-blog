@@ -63,6 +63,13 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'contract' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/admin/article'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'private',
+        ],
+
     ],
 
 ];

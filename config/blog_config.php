@@ -2,6 +2,6 @@
 
 return [
 	
-	'base_url' =>['cyt-blog.cn'],
+	'base_url' =>['http://cyt-blog.cn'],
 
 ];

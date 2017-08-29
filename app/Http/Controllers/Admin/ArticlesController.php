@@ -30,5 +30,39 @@ class ArticlesController extends Controller
 
     }
 
+    /*
+     * @todo 添加文章
+     */
+    public function create()
+    {
+        return view('admin/article/create');
+    }
+
+    public function store(Request $request){
+
+//        $file = $request->file('file');
+//        if ($file->isValid()){
+//            $file_name = 'tset.png';
+//                 $path = $request->file('file')->storeAs(
+//                            'contract',$file_name, 'contract'
+//                        );
+//        }
+        if ($_FILES){
+            foreach ($_FILES as $FILE){
+                if ($FILE){
+                    $filename = $FILE['name'];
+                    copy($FILE['tmp_name'],public_path().'/up_images/article/'.$filename);
+                    $src = config('blog_config.base_url.0').'/up_images/article/'.$filename;
+                }
+            }
+        }
+        return json_encode(['code'=>0,'msg'=>'daozheli','data'=>['src'=>$src]]);
+
+
+
+
+
+    }
+
 
 }

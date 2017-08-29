@@ -72,10 +72,12 @@ class LoginController extends Controller
     /**
      * @param string
      */
-    public function loginout()
+    public function loginout(Request $request)
     {
         // 清空session
-
+        $request->session()->flush();
         // 重定向到login
+        return redirect('admin/login');
+
     }
 }

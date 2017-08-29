@@ -34,9 +34,14 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
     //后台登录
     Route::match(['get','post'],'/login','LoginController@login');
 
+    Route::match('get','/loginout','LoginController@loginout');
+
     Route::group(['middleware'=>['admin.login']],function (){
         // 后台首页重定向
         Route::get('/index','LoginController@view');
+
+        //文章管理资源路由
+        Route::resource('articles','ArticlesController');
 
         // 增加文章
         Route::get('/articles/add',function(){
