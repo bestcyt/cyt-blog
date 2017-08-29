@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         view()->composer(
-            'layouts.admin.app', 'App\Http\ViewComposers\layoutAdminComposer'
+            'layouts.admin.app', 'App\Http\ViewComposers\LayoutAdminComposer'
         );
 
     }
