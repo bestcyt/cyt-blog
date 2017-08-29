@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\BlogArticles;
+use Validator;
 
 class ArticlesController extends Controller
 {
@@ -31,6 +32,13 @@ class ArticlesController extends Controller
     }
 
     /*
+     * @todo 文章的跳转index
+     */
+    public function index(){
+        return view('admin/article/index');
+    }
+
+    /*
      * @todo 添加文章
      */
     public function create()
@@ -47,6 +55,7 @@ class ArticlesController extends Controller
 //                            'contract',$file_name, 'contract'
 //                        );
 //        }
+
         if ($_FILES){
             foreach ($_FILES as $FILE){
                 if ($FILE){
@@ -55,10 +64,33 @@ class ArticlesController extends Controller
                     $src = config('blog_config.base_url.0').'/up_images/article/'.$filename;
                 }
             }
+            return json_encode(['code'=>0,'msg'=>'daozheli','data'=>['src'=>$src]]);
         }
-        return json_encode(['code'=>0,'msg'=>'daozheli','data'=>['src'=>$src]]);
 
+        if ($request->method() == 'POST'){
+            $validator = Validator::make($request->all(),[
+                'article_cate'=> 'required',
+                'article_title'=> 'required',
+                'article_desc'=> 'required'
+            ],[
+                'required' => ' :attribute 不能为空.'
+            ],[
+                'article_cate'=>'文章分类',
+                'article_title'=>'文章标题',
+                'article_desc'=>'文章描述',
+            ]);
+            if ($validator->fails()) {
+                return back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
 
+            $insert_article_re = BlogArticles::insertArticle($request);
+            if ($insert_article_re){
+                return redirect('admin/articles');
+            }
+            dd('xxx');
+        }
 
 
 

@@ -23,7 +23,7 @@
         </div>
     </div>
     <!--结果集标题与导航组件 结束-->
-
+    文章添加成功！！
     <div class="result_wrap">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -42,7 +42,7 @@
                                 <option value="">==请选择==</option>
                                 <option value="1">php</option>
                                 <option value="11">thinkCMF</option>
-                                <option value="12">laravel</option>
+                                <option value="13">laravel</option>
                                 <option value="2">mysql</option>
                                 <option value="3">linux</option>
                                 <option value="4">杂记</option>

@@ -36,8 +36,6 @@ class BlogArticles extends Model
         $article_data['content'] = $request->article_content;
         $article_data['create_time'] = time();
         $re = static::insert($article_data);
-        
-
 
         return $re ;
     }
@@ -53,6 +51,6 @@ class BlogArticles extends Model
      */
     public static function getArticlesListByCate($cate_id)
     {
-        return static::where('cate','=',$cate_id)->paginate(1);
+        return static::where('cate','=',$cate_id)->orderBy('create_time','desc')->paginate(1);
     }
 }
