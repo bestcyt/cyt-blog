@@ -13,6 +13,7 @@ use App\Http\Models\BlogUsers;
 use App\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class layoutAdminComposer
 {
@@ -21,6 +22,6 @@ class layoutAdminComposer
 
         //@todo 从session拿数据
 
-        $view->with(['admin'=>'123333']);
+        $view->with(['admin'=>Session::get('admin')]);
     }
 }

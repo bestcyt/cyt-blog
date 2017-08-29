@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'adminlogin'=> [
+        'admin.login'=> [
             AdminLogin::class,
         ],
 

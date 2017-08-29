@@ -19,6 +19,10 @@
 			<ul>
 				<li><a href="#" class="active">首页</a></li>
 				<li><a href="#">管理页</a></li>
+				<li><a href="#">管理页</a></li>
+				<li><a href="#">管理页</a></li>
+				<li><a href="#">管理页</a></li>
+
 			</ul>
 		</div>
 		<div class="top_right">

@@ -27,38 +27,42 @@ Route::get('article/{id}','Home\ArticlesController@index');
 /*
  * 后台管理员登录路由组
  */
-Route::group(['middleware'=>'adminlogin','namespace'=>'Admin','prefix'=>'admin'],function (){
 
-	//后台登录
+
+//拥有管理员权限，中间件判断过滤
+Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
+    //后台登录
     Route::match(['get','post'],'/login','LoginController@login');
 
-    // 后台首页重定向
-	Route::get('/index',function(){
-    	return view('admin.index');
+    Route::group(['middleware'=>['admin.login']],function (){
+        // 后台首页重定向
+        Route::get('/index','LoginController@view');
+
+        // 增加文章
+        Route::get('/articles/add',function(){
+            return view('admin.add');
+        });
+        Route::post('articles/add','ArticlesController@postModify');
+
+        // 文章列表
+        Route::get('/articles/list',function(){
+            return view('admin.list');
+        });
+
+        // 待定
+        Route::get('/articles/tab',function(){
+            return view('admin.tab');
+        });
+
+        // 图片待定
+        Route::get('/articles/img',function(){
+            return view('admin.img');
+        });
     });
 
-    // 增加文章
-    Route::get('/articles/add',function(){
-    	return view('admin.add');
-    });
-    Route::post('articles/add','ArticlesController@postModify');
-
-    // 文章列表
-    Route::get('/articles/list',function(){
-    	return view('admin.list');
-    });
-
-    // 待定
-    Route::get('/articles/tab',function(){
-    	return view('admin.tab');
-    });
-
-    // 图片待定
-    Route::get('/articles/img',function(){
-    	return view('admin.img');
-    });
 //    Route::get('login','LoginController@login');
 
 });
+
 
 

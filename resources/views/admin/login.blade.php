@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="{{ asset('style/font/css/font-awesome.min.css') }}">
 </head>
 <body style="background:#F3F3F4;">
+@inject('Session', 'Illuminate\Support\Facades\Session')
 	<div class="login_box">
 		<h1>Blog</h1>
 		<h2>欢迎使用博客管理平台</h2>
@@ -20,15 +21,23 @@
 					</ul>
 				</div>
 			@endif
+			@if($Session::has('response'))
+				<div class="form-group">
+					{{--<div class="col-md-3"></div>--}}
+					<label for="email" class="col-md-5 control-label" style="color: red">{{ $Session::get('response') }}</label>
+					{{--<div class="col-md-3"></div>--}}
+				</div>
+			@endif
 			<form action="{{ url('admin/login') }}" method="post">
 				{{ csrf_field() }}
+
 				<ul>
 					<li>
-					<input type="text" name="username" class="text"/>
+					<input type="text" name="username" class="text" value="{{ old('username') }}"/>
 						<span><i class="fa fa-user"></i></span>
 					</li>
 					<li>
-						<input type="password" name="password" class="text"/>
+						<input type="password" name="password" class="text" value="{{ old('password') }}"/>
 						<span><i class="fa fa-lock"></i></span>
 					</li>
 					<li>
