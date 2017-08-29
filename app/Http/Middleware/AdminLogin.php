@@ -17,7 +17,9 @@ class AdminLogin
     {
 
         //调用user model判断是否为管理员，
+        //在中间件判断用户是否Admin，不需要在controller中判断；先判断是否有这个的session
 
+        
         return $next($request);
     }
 }
