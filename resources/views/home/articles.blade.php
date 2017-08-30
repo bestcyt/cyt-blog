@@ -12,7 +12,7 @@
                                     <input type="hidden" name="article_detail">
                                     <div class="entry-img col-md-6" style="background-image:url({{ asset('images/img_1.jpg')  }})"></div>
                                     <div class="entry-desc col-md-6" >
-                                        <h3>{{ $item->id }}</h3>
+                                        <h3>{{ $item->title }}</h3>
                                         <p>{{ $item->desc }}</p>
                                     </div>
                                 </a>
