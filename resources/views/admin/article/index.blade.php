@@ -11,12 +11,12 @@
 
     <!--结果页快捷搜索框 开始-->
     <div class="search_wrap">
-        <form action="{{ url('') }}" method="post">
+        <form action="{{ url('admin/articles/'.'show') }}" method="GET">
             <table class="search_tab">
                 <tr>
                     <th width="120">选择分类:</th>
                     <td>
-                        <select name="choose">
+                        <select name="cate">
                             <option value="0">全部</option>
                             <option value="1">php</option>
                             <option value="11">thinkCMF</option>
@@ -54,7 +54,7 @@
             <div class="result_content">
                 <table class="list_tab">
                     <tr>
-                        <th class="tc" width="5%"><input type="checkbox" name=""></th>
+                        <th class="tc" width="5%">类别</th>
                         {{--<th class="tc">排序</th>--}}
                         <th class="tc">ID</th>
                         <th>标题</th>
@@ -68,7 +68,7 @@
                     </tr>
                     @foreach($article_list as $article)
                         <tr>
-                            <td class="tc"><input type="checkbox" name="id[]" value=""></td>
+                            <td class="tc">{{ $article->cate }}</td>
                             <td class="tc">
                                 {{ $article->id }}
                             </td>

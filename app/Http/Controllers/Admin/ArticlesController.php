@@ -9,27 +9,6 @@ use Validator;
 
 class ArticlesController extends Controller
 {
-    //
-    /**
-     * @todo articles View
-     * @return [type] [description]
-     */
-    public function view(){
-    	dd();
-    }
-
-    /**
-     * @todo articles Post
-     * @param  Request $request [description]
-     * @return [type]           [description]
-     */
-    public function postModify(Request $request)
-    {
-    	// dd($request);
-    	
-    	$re = BlogArticles::insertArticle($request);
-
-    }
 
     /*
      * @todo 文章的跳转index
@@ -74,6 +53,16 @@ class ArticlesController extends Controller
         dd('error');
         return 'error';
 
+    }
+
+    /*
+     * @todo show 查询文章
+     */
+    public function show($str,Request $request){
+
+        $article_list = BlogArticles::getArticleListByKey($request);
+//        $article_list = BlogArticles::changeCateToName($article_list,1);
+        return view('admin.article.index')->with(['article_list'=>$article_list]);
     }
 
     /*

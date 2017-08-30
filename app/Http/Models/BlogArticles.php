@@ -16,17 +16,10 @@ class BlogArticles extends Model
         return $article_list;
     }
 
-    /**
-     * auth:cyt
-     * @param  id[int]
-     * @param  id[int]
-     * @return id[int]
+
+    /*
+     * @todo 新增文章
      */
-    public function getUserInfoById($article_id)
-    {
-
-    }
-
     public static function insertArticle($request)
     {
         $article_data = [];
@@ -47,7 +40,23 @@ class BlogArticles extends Model
     public static function getArticleInfo($article_id)
     {
         $article = static::find($article_id);
+//        $re_article = self::changeCateToName($article);
         if($article){
+            $article->cate_name = BlogCates::getCateNameById($article->cate);
+        }
+        return $article;
+    }
+
+    /*
+     * @todo 将cate转换为cate_name,做成模型关联吧
+     * type 为0，为一层的文章；为1为文章列表
+     */
+    public static function changeCateToName($article,$type=0){
+        if($type){
+            foreach ($article as $ar){
+                $ar->cate_name = BlogCates::getCateNameById($ar->cate);
+            }
+        }else{
             $article->cate_name = BlogCates::getCateNameById($article->cate);
         }
         return $article;
@@ -73,7 +82,7 @@ class BlogArticles extends Model
     public static function getArticlesList($request,$cate=0){
 
         if($cate !=0){
-            return static::where('cata','=',$cate)->orderBy('create_time','desc')->paginate(10);
+            return static::where('cate','=',$cate)->orderBy('create_time','desc')->paginate(10);
         }
 
         return static::orderBy('create_time','desc')->paginate(10);
@@ -85,6 +94,46 @@ class BlogArticles extends Model
     public static function deleteArticleById($article_id){
 
         return static::destroy($article_id);
+    }
+
+    /*
+     * @todo 根据类别和关键字查询文章
+     */
+    public static function getArticleListByKey($request){
+
+        $cate = $request->input('cate');
+        $keyword = $request->input('keywords');
+        if($cate!=0){
+            if($keyword){
+                $re = static::where([
+                    ['cate','=',$cate],
+                    ['content','like',"%$keyword%"],
+                ])->orWhere([
+                    ['cate','=',$cate],
+                    ['title','like',"%$keyword%"],
+                ])->orWhere([
+                    ['cate','=',$cate],
+                    ['desc','like',"%$keyword%"]
+                ])->orderBy('create_time','desc')->paginate(10);
+            }else{
+                $re = static::where('cate','=',$cate)->paginate(10);
+            }
+        }else{
+            if($keyword){
+                $re = static::where([
+                    ['content','like',"%$keyword%"],
+                ])->orWhere([
+                    ['title','like',"%$keyword%"]
+                ])->orWhere([
+                    ['desc','like',"%$keyword%"]
+                ])->orderBy('create_time','desc')->paginate(10);
+            }else{
+                $re = static::paginate(10);
+            }
+        }
+
+        return $re;
+
     }
 
 
