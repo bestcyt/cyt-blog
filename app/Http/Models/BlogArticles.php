@@ -12,7 +12,7 @@ class BlogArticles extends Model
 
     public static function getAllArticles(){
 
-        $article_list = static::paginate(1);
+        $article_list = static::orderBy('create_time','desc')->paginate(1);
         return $article_list;
     }
 
@@ -116,7 +116,7 @@ class BlogArticles extends Model
                     ['desc','like',"%$keyword%"]
                 ])->orderBy('create_time','desc')->paginate(10);
             }else{
-                $re = static::where('cate','=',$cate)->paginate(10);
+                $re = static::where('cate','=',$cate)->orderBy('create_time','desc')->paginate(10);
             }
         }else{
             if($keyword){
@@ -128,7 +128,7 @@ class BlogArticles extends Model
                     ['desc','like',"%$keyword%"]
                 ])->orderBy('create_time','desc')->paginate(10);
             }else{
-                $re = static::paginate(10);
+                $re = static::orderBy('create_time','desc')->paginate(10);
             }
         }
 
