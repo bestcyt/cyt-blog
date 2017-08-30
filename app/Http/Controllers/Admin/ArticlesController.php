@@ -34,18 +34,59 @@ class ArticlesController extends Controller
     /*
      * @todo 文章的跳转index
      */
-    public function index(){
-        return view('admin/article/index');
+    public function index(Request $request){
+        //获取文章列表
+        $article_list = BlogArticles::getArticlesList($request);
+
+        return view('admin/article/index')->with(['article_list'=>$article_list]);
     }
 
     /*
-     * @todo 添加文章
+     * @todo 删除文章
+     */
+    public function destroy($article_id){
+
+        $re = BlogArticles::deleteArticleById($article_id);
+        if ($re){
+            return back();
+        }
+        dd('delete failed');
+
+    }
+
+    /*
+     * @todo edit编辑文章
+     */
+    public function edit($article_id){
+
+        $article_edit = BlogArticles::getArticleInfo($article_id);
+
+        return view('admin/article/edit')->with(['article_edit'=>$article_edit]);
+    }
+
+    /*
+     * @todo update 更新文章
+     */
+    public function update($article_id,Request $request){
+        if (BlogArticles::updateArticle($article_id,$request)){
+            return redirect('admin/articles');
+        }
+        dd('error');
+        return 'error';
+
+    }
+
+    /*
+     * @todo create 添加文章
      */
     public function create()
     {
         return view('admin/article/create');
     }
 
+    /*
+     * @todo store 提交文章
+     */
     public function store(Request $request){
 
 //        $file = $request->file('file');
@@ -59,12 +100,12 @@ class ArticlesController extends Controller
         if ($_FILES){
             foreach ($_FILES as $FILE){
                 if ($FILE){
-                    $filename = $FILE['name'];
+                    $filename = time().'_'.$FILE['name'];
                     copy($FILE['tmp_name'],public_path().'/up_images/article/'.$filename);
                     $src = config('blog_config.base_url.0').'/up_images/article/'.$filename;
                 }
             }
-            return json_encode(['code'=>0,'msg'=>'daozheli','data'=>['src'=>$src]]);
+            return json_encode(['code'=>0,'msg'=>'success','data'=>['src'=>$src]]);
         }
 
         if ($request->method() == 'POST'){

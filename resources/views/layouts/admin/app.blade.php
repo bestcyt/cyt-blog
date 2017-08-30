@@ -4,6 +4,9 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="{{ asset('style/css/ch-ui.admin.css') }}">
 	<link rel="stylesheet" href="{{ asset('style/font/css/font-awesome.min.css') }}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{ asset('css/blog_css/bootstrap.css') }}">
+
 	<script type="text/javascript" src="{{ asset('style/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('style/js/ch-ui.admin.js') }}"></script>
 
@@ -42,7 +45,7 @@
             	<h3><i class="fa fa-fw fa-clipboard"></i>文章管理</h3>
                 <ul class="sub_menu">
                     <li><a href="{{ url('admin/articles/create')}}" ><i class="fa fa-fw fa-plus-square"></i>添加文章</a></li>
-                    <li><a href="{{ url('admin/articles/list')}}" ><i class="fa fa-fw fa-list-ul"></i>文章列表</a></li>
+                    <li><a href="{{ url('admin/articles')}}" ><i class="fa fa-fw fa-list-ul"></i>文章列表</a></li>
                     {{--<li><a href="{{ url('admin/articles/tab')}}"><i class="fa fa-fw fa-list-alt"></i>tab页</a></li>--}}
                     <li><a href="{{ url('admin/articles/img')}}"><i class="fa fa-fw fa-image"></i>文章分类</a></li>
                 </ul>
@@ -92,4 +95,6 @@
 </body>
 
 @yield('script')
+<!-- Bootstrap -->
+<script src="{{ asset('js/blog_js/bootstrap.min.js') }}"></script>
 </html>
