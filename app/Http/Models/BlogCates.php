@@ -16,4 +16,12 @@ class BlogCates extends Model
 
         return static::where('id','=',$cate_id)->value('cate_desc');
     }
+
+    /*
+     * @todo 获取分类列表
+     */
+    public static function getCateList(){
+
+        return static::paginate(10);
+    }
 }

@@ -47,7 +47,7 @@
                     <li><a href="{{ url('admin/articles/create')}}" ><i class="fa fa-fw fa-plus-square"></i>添加文章</a></li>
                     <li><a href="{{ url('admin/articles')}}" ><i class="fa fa-fw fa-list-ul"></i>文章列表</a></li>
                     {{--<li><a href="{{ url('admin/articles/tab')}}"><i class="fa fa-fw fa-list-alt"></i>tab页</a></li>--}}
-                    <li><a href="{{ url('admin/articles/img')}}"><i class="fa fa-fw fa-image"></i>文章分类</a></li>
+                    <li><a href="{{ url('admin/cate')}}"><i class="fa fa-fw fa-image"></i>文章分类</a></li>
                 </ul>
             </li>
             <li>

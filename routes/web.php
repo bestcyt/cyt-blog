@@ -43,16 +43,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
         //文章管理资源路由
         Route::resource('articles','ArticlesController');
 
-        // 增加文章
-        Route::get('/articles/add',function(){
-            return view('admin.add');
-        });
-        Route::post('articles/add','ArticlesController@postModify');
-
-        // 文章列表
-        Route::get('/articles/list',function(){
-            return view('admin.list');
-        });
+        Route::resource('cate','CateController');
 
         // 待定
         Route::get('/articles/tab',function(){
