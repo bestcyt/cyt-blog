@@ -12,10 +12,10 @@
 */
 
 //前台首页
-Route::get('/', 'Home\HomeController@view');
+Route::paginate('/', 'Home\HomeController@view');
 
 //前台分类文章路由
-Route::get('cate/{id}','Home\CatesController@index');
+Route::paginate('cate/{id}','Home\CatesController@index');
 
 //前台文章资源路由，
 Route::get('article/{id}','Home\ArticlesController@index');

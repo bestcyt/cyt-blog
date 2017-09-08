@@ -12,7 +12,7 @@ class BlogArticles extends Model
 
     public static function getAllArticles(){
 
-        $article_list = static::orderBy('create_time','desc')->paginate(1);
+        $article_list = static::orderBy('create_time','desc')->paginate(3);
         return $article_list;
     }
 
@@ -143,6 +143,6 @@ class BlogArticles extends Model
      */
     public static function getArticlesListByCate($cate_id)
     {
-        return static::where('cate','=',$cate_id)->orderBy('create_time','desc')->paginate(1);
+        return static::where('cate','=',$cate_id)->orderBy('create_time','desc')->paginate(3);
     }
 }

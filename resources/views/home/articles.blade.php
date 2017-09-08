@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <ul id="gtco-post-list">
                     @if( count($articles) ==0 )
-                        <h3>该分类暂无文章</h3>
+                        <h3>该分类暂无00文章</h3>
                         @else
                         @foreach($articles as $item)
                             <li class="full entry animate-box" data-animate-effect="fadeIn">
@@ -48,19 +48,30 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <nav aria-label="Page navigation">
-                    <div class="container">
-                        @foreach ($articles as $article)
-                            {{ $article->name }}
-                        @endforeach
-                    </div>
 
-                    {{ $articles->links() }}
-                </nav>
 
-            </div>
-        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        {{--{!! PaginateRoute::renderPageList($articles) !!}--}}
+        <nav aria-label="Page navigation">
+            @if(PaginateRoute::hasPreviousPage())
+                <a href="{{ PaginateRoute::previousPageUrl() }}">Previous</a>
+            @endif
+            {!! PaginateRoute::renderPageList($articles) !!}
+            @if(PaginateRoute::hasNextPage($articles))
+                <a href="{{ PaginateRoute::nextPageUrl($articles) }}">Next</a>
+            @endif
+            {{--<div class="container">--}}
+                {{--@foreach ($articles as $article)--}}
+                    {{--{{ $article->name }}--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+
+            {{--{{ $articles->links() }}--}}
+        </nav>
+
     </div>
 </div>
